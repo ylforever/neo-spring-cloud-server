@@ -1,0 +1,22 @@
+server:
+ servlet:
+  context-path: /spring-cloud-client
+ port: 19528
+
+logging:
+ level:
+  com:
+   postgres:
+    mapper: debug
+
+spring:
+ application:
+  name: cloud-client-one
+ cloud:
+  loadbalancer:
+   ribbon:
+    enabled: false
+  nacos:
+   discovery:
+    server-addr: 127.0.0.1:8848
+    namespace: neo
