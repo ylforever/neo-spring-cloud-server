@@ -5,8 +5,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.loadbalancer.annotation.LoadBalancerClient;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
  * 微服务启动程序
@@ -16,6 +15,7 @@ import org.springframework.cloud.loadbalancer.annotation.LoadBalancerClient;
  * @version 1.0
  */
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
+@EnableScheduling
 public class SpringCloudOneApp {
     private static final Logger LOGGER = LogManager.getLogger(SpringCloudOneApp.class);
 
