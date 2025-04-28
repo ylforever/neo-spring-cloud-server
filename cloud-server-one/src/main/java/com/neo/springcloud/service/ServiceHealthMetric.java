@@ -82,7 +82,6 @@ public class ServiceHealthMetric {
             // 更新实例
             NamingMaintainService namingMaintainService = nacosServiceManager.getNamingMaintainService(properties);
             namingMaintainService.updateInstance(curInstance.getServiceName(), curInstance);
-
         } catch (Exception e) {
             LOGGER.error("Collect metrics fail.", e);
         }

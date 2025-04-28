@@ -49,25 +49,6 @@ public class LessonController {
      */
     @PostMapping("/insert-lesson")
     public String insertLesson(@RequestBody String str) {
-        List<ServiceInstance> instances= discoveryClient.getInstances("cloud-server-one");
-        ServiceInstance instance = instances.get(0);
-
-        Properties properties = nacosDiscoveryProperties.getNacosProperties();
-        NamingService namingService = nacosServiceManager.getNamingService(properties);
-
-        try {
-            List<Instance>  instancesList = namingService.getAllInstances("cloud-server-one");
-            Instance instance1 = instancesList.get(0);
-            instance1.setWeight(98);
-            instance1.addMetadata("cpu.usage", "95");
-
-            NamingMaintainService namingMaintainService = nacosServiceManager.getNamingMaintainService(properties);
-            namingMaintainService.updateInstance(instance1.getServiceName(), instance1);
-        } catch (NacosException e) {
-            e.printStackTrace();
-        }
-
-
         LOGGER.info("Insert lesson:{}", str);
         return str;
     }
