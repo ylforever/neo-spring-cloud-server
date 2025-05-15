@@ -1,0 +1,35 @@
+server:
+ servlet:
+  context-path: /
+ port: 8081
+
+logging:
+ level:
+  com:
+   postgres:
+    mapper: debug
+
+spring:
+ main:
+  web-application-type: reactive
+ application:
+  name: cloud-gateway
+ cloud:
+  loadbalancer:
+   ribbon:
+    enabled: false
+  nacos:
+   discovery:
+    server-addr: 127.0.0.1:8848
+    namespace: neo
+  gateway:
+   routes:
+    - id: cloud-server-one
+      uri: lb://cloud-server-one
+      #uri: http://localhost:19527/spring-cloud-server
+      predicates:
+       - Path=/cloud-server-one/**
+
+gateway:
+ jwt:
+  secret: neo

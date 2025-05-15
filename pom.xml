@@ -22,6 +22,7 @@
     <modules>
         <module>cloud-server-one</module>
         <module>cloud-client-one</module>
+        <module>cloud-gateway</module>
     </modules>
 
     <packaging>pom</packaging>

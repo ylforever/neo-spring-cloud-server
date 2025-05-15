@@ -1,6 +1,6 @@
 server:
  servlet:
-  context-path: /spring-cloud-server
+  context-path: /cloud-server-one
  port: 19527
 
 logging:
